@@ -18,6 +18,8 @@ from django.contrib import admin
 from ecomstore import settings
 from django.contrib.staticfiles import views
 
+admin.autodiscover()
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^catalog/','preview.views.home'),
@@ -25,12 +27,8 @@ urlpatterns = [
 # { 'document_root' : '/home/yogesh/ecomstore/static' })
 ]
 
-# if settings.DEBUG:
-# 	urlpatterns += [
-# 		url(r'^static/(?P<path>.*)$', 'static.serve'),
-
-if settings.DEBUG:
-	urlpatterns += [
-url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-{ 'document_root' : '/home/yogesh/ecomstore/static' }),
-]
+# urlpatterns = [
+# # other commented code here
+#     url(r'^catalog/?','preview.views.home'),
+#     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',{ 'document_root' : '/home/yogesh/ecomstore/static/' }),
+# ]
